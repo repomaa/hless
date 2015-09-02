@@ -1,6 +1,8 @@
 require "option_parser"
 require "tempfile"
 
+VERSION = "0.1.0"
+
 options = {} of Symbol => String
 
 if ARGV.any? && File.exists?(ARGV[-1])
@@ -17,6 +19,11 @@ OptionParser.parse! do |parser|
 
   parser.on("-h", "--help", "show this help") do
     puts parser
+    exit
+  end
+
+  parser.on("-v", "--version", "show version") do
+    puts VERSION
     exit
   end
 
