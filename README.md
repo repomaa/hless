@@ -11,12 +11,13 @@ $ hless -l rb hless.cr
 # Open the file foo.rb and highlight it with the lexer guessed from the file
 $ hless foo.rb
 # Follow the tail of a logfile and highlight its contents using the ruby lexer
-$ tail -f log/development.log | hless -l rb +F
+$ tail -f log/development.log | hless -l rb
 ```
 
 ## Dependencies
 
 - pygments
+- libpcl
 
 ## Build Dependencies
 
