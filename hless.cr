@@ -57,7 +57,7 @@ Tempfile.open(File.basename($0)) do |tempfile|
       output: tempfile,
       error: true
     )
-    Process.run("less", ["-R", tempfile.path] + ARGV, output: true, error: true)
+    Process.run("less", ["-RL", tempfile.path] + ARGV, output: true, error: true)
   else
     fork do
       Process.run(
@@ -67,7 +67,7 @@ Tempfile.open(File.basename($0)) do |tempfile|
         error: true
       )
     end
-    Process.run("less", ["-R", "+F", tempfile.path] + ARGV, output: true, error: true) do
+    Process.run("less", ["-RL", "+F", tempfile.path] + ARGV, output: true, error: true) do
       Signal::INT.ignore
     end
   end
